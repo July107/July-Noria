@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>July&Noria</title>
+  <style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+      background-image: url('loveNoria.jpg');
+      font-size: 85%;
+      margin: 0;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    h2 {
+      font-size: 220%;
+      font-weight: 400;
+    }
+
+    .content {
+      position: absolute;
+      width: 100%;
+      top: 40%;
+      transform: translate(0, -50%);
+      text-align: center;
+    }
+
+    .timer {
+      font-size: 180%;
+      line-height: 1.5;
+      margin: 1em 0;
+    }
+
+    .timer b {
+      color: rgb(253, 99, 125);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>老李和小张甜蜜的小世界</h1>
+    <h2>我们在一起已经</h2>
+    <div class="timer">
+        <b id="d"></b> 天 <b id="h"></b> 小时 <b id="m"></b> 分钟 <b id="s"></b> 秒啦~
+    </div>
+    <h2>我爱你，张诺诺~</h2>
+  </div>
+
+  <script>
+    function timer() {
+      var start = new Date(2019, 10, 22); // 2019-11-23
+      var t = new Date() - start;
+      var h = ~~(t / 1000 / 60 / 60 % 24);
+      if (h < 10) {
+          h = "0" + h;
+      }
+      var m = ~~(t / 1000 / 60 % 60);
+      if (m < 10) {
+          m = "0" + m;
+      }
+
+      var s = ~~(t / 1000 % 60);
+      if (s < 10) {
+          s = "0" + s;
+      }
+      document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+      document.getElementById('h').innerHTML = h;
+      document.getElementById('m').innerHTML = m;
+      document.getElementById('s').innerHTML = s;
+    }
+    timer();
+    setInterval(timer, 1000);
+  </script>
+</body>
+</html>
